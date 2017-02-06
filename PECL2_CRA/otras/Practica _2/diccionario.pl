@@ -1,0 +1,130 @@
+%***********************************************************
+%**********************DICCIONARIO**************************
+%***********************************************************
+
+%DETERMINATES
+  det(el).
+  det(la).
+  det(las).
+  det(un).
+  det(una).
+  det(su).
+  det(mi).
+
+%NOMBRES
+  n(alumno).
+  n(cuchillo).
+  n(canario).
+  n(capital).
+  n(café).
+  n(cerveza).
+  n(documentos).
+  n(derecho).
+  n(esperanza).
+  n(filosofía).
+  n(vida).
+  n(gato).
+  n(hombre).
+  n(herramienta).
+  n(jardín).
+  n(lugar).
+  n(mujer).
+  n(manzana).
+  n(manzanas).
+  n(mesa).
+  n(niño).
+  n(nacimiento).
+  n(novela).
+  n(patatas).
+  n(paella).
+  n(perro).
+  n(práctica).
+  n(profesor).
+  n(procesador).
+  n(periódico).
+  n(ratón).
+  n(ratones).
+  n(rocódromo).
+  n(tenedor).
+  n(tardes).
+  n(textos).
+  n(universidad).
+  n(vecino).
+  n(zumo).
+
+%NOMBRE PROPIO
+  np(juan).
+  np(maría).
+  np(madrid).
+  np(héctor).
+  np(irene).
+  
+%VERBOS
+  v(ama).
+  v(beben).
+  v(cazó).
+  v(come).
+  v(comen).
+  v(canta).
+  v(depende).
+  v(estudia).
+  v(es).
+  v(escala).
+  v(está).
+  v(era).
+  v(escribir).
+  v(habla).
+  v(hace).
+  v(lee).
+  v(persiguió).
+  v(prefiere).
+  v(salta).
+  v(sonríe).
+  v(sirve).
+  v(recoge).
+  v(toma).
+  v(vimos).
+
+%ADJETIVOS
+  adj(ágil).
+  adj(alta).
+  adj(alegre).
+  adj(delicado).
+  adj(fritas).
+  adj(rojas).
+  adj(roja).
+  adj(moreno).
+  adj(negro).
+  adj(grande).
+  adj(gris).
+  adj(hermosa).
+  adj(lento).
+  adj(pequeño).
+  adj(potente).
+  adj(reflejos).
+
+%PREPOSICIONES
+  prep(a).
+  prep(con).
+  prep(de).
+  prep(en).
+  prep(por).
+  prep(para).
+
+%ADVERBIOS
+  adv(ayer).
+  adv(muy).
+  adv(lejos).
+  adv(claramente).
+  adv(solamente).
+  adv(bastante).
+
+%PRONOMBRES
+  pron(que).
+  
+%CONJUNCIONES
+  conj(y).
+  conj(pero).
+  conj(mientras).
+  conj(aunque).
+  conj(e).

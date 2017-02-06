@@ -1,0 +1,2 @@
+Instalar primero SWI-Prolog: w32pl5664.exe
+Descomprimir e instalar SWI-Prolog-Editor: setup.zip
