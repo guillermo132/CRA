@@ -15,7 +15,7 @@ listapelo_rubio([paul,natalie,roxanne,michael,sam,will,anthony,billy,emma]).
 listafeliz([albert,tiffany,tom,natalie,richard,roxanne,michael,charles,sabrina,steve,will,anthony,cindy,emma]).
 listatriste([paul,derek,louis,sam,billy,henry,sarah]).
 
-listapreguntas([chico,chica,ropa_roja,ropa_verde,gafas,ojos_azules,ojos_marrores,pelo_negro,pelo_rubio,triste,feliz]).
+listapreguntas([chico,chica,ropa_roja,ropa_verde,gafas,ojos_azules,ojos_marrores,pelo_negro,pelo_rubio,triste,feliz]). %Lista de todas las preguntas.
 listaPreguntasReducidas([chico,pelo_negro,ropa_roja,feliz,gafas,ojos_azules]). %Lista de las 6 preguntas básicas.
 busqueda(pregunta,lista):-
 
@@ -33,16 +33,14 @@ ojos_azules(X):-listaojos_azules(Y),member(X,Y). %Predicado que indica si la var
 ojos_marrones(X):-listaojos_azules(Y),\+member(X,Y). %Predicado que indica si la variable X tiene los ojos marrones.
 
 escribirFichaJug(FichaUser):-write('Su personaje es: '), write(FichaUser) , write('\n').
+escribirFicha(FichaPC):-write('PERSONAJE PC:'), write(FichaPC) , write('\n').
 
 % Genera el personaje para cada uno de los jugadores y se las asigna. Además inicia la partida.
-comenzarMF:-random(1,21,Aleatorio), listapersonajes(Todos),nth1(Aleatorio,Todos,FichaUser),select(FichaJug,Todos,ListaUser),escribirFichaJug(FichaUser),
-random(1,20,Aleat),nth1(Aleat,ListaJug,FichaPC),select(FichaComp,Todos,ListaPC), listaPreguntasReducidas(ListaPreguntasReducidas).
+comenzarMF:-random(1,21,Aleatorio), listapersonajes(Todos),nth1(Aleatorio,Todos,FichaUser),select(FichaUser,Todos,ListaUser),escribirFichaJug(FichaUser),
+random(1,20,Aleat),nth1(Aleat,ListaJug,FichaComp),select(FichaComp,Todos,ListaPC), listaPreguntasReducidas(ListaPreguntasReducidas),escribirFicha(FichaComp).
 %jugandoUsuarioMF(ListaComp,FichaComp,ListaJug,FichaJug,ListaPreguntasReducidas).
 
 
-%personajes()
-%PersonajePC:-
-%PersonajePlayer :-
 
 %estrategia basica
 %   Selecion aleatoria del personaje del jugador RANDOM (para jugador)
