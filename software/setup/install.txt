@@ -1,0 +1,5 @@
+Instalación del editor SWI-Prolog
+Crear  C:\Users\Public\Desktop\SWI-Prolog-Editor.lnk
+Crear Entrar en el menú=Programa C:\ProgramData\Microsoft\Windows\Start Menu\SWI-Prolog-Editor\SWI-Prolog-Editor.lnk
+Crear acceso directo para el editor SWI-Prolog \\Mac\Dropbox\Compartidas\CRA\Lab\software\setup\
+Guardar proceso de instalación \\Mac\Dropbox\Compartidas\CRA\Lab\software\setup\install.txt

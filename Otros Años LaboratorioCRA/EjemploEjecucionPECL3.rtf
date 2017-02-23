@@ -1,0 +1,103 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf340
+{\fonttbl\f0\fmodern\fcharset0 Courier;}
+{\colortbl;\red255\green255\blue255;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs26 \cf0 \expnd0\expndtw0\kerning0
+> (test_racionales((par uno) dos))\
+(1 2)\
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\
+> (test_racionales(reducir_racionales((par uno) dos)))\
+(1 2)\
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\
+> (test_racionales((suma_racionales((par uno) dos))((par uno)dos)))\
+(1 1)\
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\
+> (test_racionales((resta_racionales((par uno) dos))((par uno)dos)))\
+(0 1)\
+> (test_racionales((resta_racionales((par cinco) dos))((par uno)dos)))\
+(2 1)\
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\
+> (test_racionales((multiplica_racionales((par uno) dos))((par uno)dos)))\
+(1 4)\
+> (test_racionales((multiplica_racionales((par ocho) dos))((par uno)nueve)))\
+(4 9)\
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\
+> (test_racionales(inverso_racional((par uno)nueve)))\
+(9 1)\
+> (test_racionales(inverso_racional((par nueve)cuatro)))\
+(4 9)\
+> (test_racionales(inverso_racional((par cuatro)dos)))\
+(1 2)\
+********************************************************************************\
+********************************************************************************\
+> ((esigual_racionales ((par uno) dos))((par uno) dos))\
+#<procedure:true>\
+> ((esigual_racionales ((par dos) dos))((par uno) dos))\
+#<procedure:false>\
+> ((esigual_racionales ((par dos) dos))((par uno) nueve))\
+#<procedure:false>\
+> ((esigual_racionales ((par dos) nueve))((par uno) nueve))\
+#<procedure:false>\
+> ((esigual_racionales ((par uno) nueve))((par uno) nueve))\
+#<procedure:true>\
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\
+> ((esmenor_racionales ((par uno) nueve))((par uno) nueve))\
+#<procedure:false>\
+> ((esmenor_racionales ((par cero) nueve))((par uno) nueve))\
+#<procedure:true>\
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\
+> ((esmayor_racionales ((par uno) nueve))((par uno) nueve))\
+#<procedure:false>\
+> ((esmayor_racionales ((par cero) nueve))((par uno) nueve))\
+#<procedure:false>\
+> ((esmayor_racionales ((par nueve) nueve))((par uno) nueve))\
+#<procedure:true>\
+\
+--------------- MATRICES --------------------------------------------------------\
+> (test_matrices ((((matriz ((par uno) dos)) ((par uno) dos)) ((par uno) dos)) ((par uno) dos)))\
+(((1 2) (1 2)) ((1 2) (1 2)))\
+> (test_matrices ((suma_matrices ((((matriz ((par uno) dos)) ((par uno) dos)) ((par uno) dos)) ((par uno) dos))) ((((matriz ((par uno) dos)) ((par uno) dos)) ((par uno) dos)) ((par uno) dos))))\
+(((1 1) (1 1)) ((1 1) (1 1)))\
+> (test_matrices ((multiplica_matrices ((((matriz ((par uno) dos)) ((par uno) dos)) ((par uno) dos)) ((par uno) dos))) ((((matriz ((par uno) dos)) ((par uno) dos)) ((par uno) dos)) ((par uno) dos))))\
+(((1 2) (1 2)) ((1 2) (1 2)))\
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\
+> (test_racionales (determinante_matriz ((((matriz ((par uno) dos)) ((par uno) dos)) ((par uno) dos)) ((par uno) dos))))\
+(0 1)\
+\
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\
+> (tiene_inversa? ((((matriz ((par uno) dos)) ((par uno) dos)) ((par uno) dos)) \
+((par uno) dos)))\
+#<procedure:false>\
+> (tiene_inversa? ((((matriz ((par tres) dos)) ((par cuatro) dos)) ((par uno) dos)) \
+((par uno) uno)))\
+#<procedure:true>\
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\
+> (testenteros(rango ((((matriz ((par cero) dos)) ((par cero) uno)) ((par cero) uno)) ((par cero) uno))))\
+0\
+> (testenteros(rango ((((matriz ((par uno) dos)) ((par cero) uno)) ((par cero) uno)) ((par cero) uno))))\
+1\
+> (testenteros(rango ((((matriz ((par uno) dos)) ((par uno) uno)) ((par tres) uno)) ((par cero) uno))))\
+2\
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\
+> (test_matrices (inversa_matriz ((((matriz ((par uno) dos)) ((par uno) dos)) ((par uno) dos)) \
+((par uno) dos))))\
+(((1 0) (-1 0)) ((-1 0) (1 0)))\
+> (test_matrices (inversa_matriz ((((matriz ((par uno) uno)) ((par dos) uno)) ((par tres) uno)) \
+((par ocho) dos))))\
+(((2 -1) (-1 -1)) ((-3 -2) (1 -2)))\
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\
+> (test_matrices ((potencia_matrices ((((matriz ((par uno) uno)) ((par uno) uno)) ((par uno) uno)) \
+((par uno) uno))) trois))\
+(((4 1) (4 1)) ((4 1) (4 1)))\
+> (test_matrices ((potencia_matrices ((((matriz ((par uno) uno)) ((par uno) uno)) ((par uno) uno)) \
+((par uno) uno))) quatre))\
+(((8 1) (8 1)) ((8 1) (8 1)))\
+> (test_matrices ((potencia_matrices ((((matriz ((par uno) uno)) ((par uno) uno)) ((par uno) uno)) \
+((par uno) uno))) cinq))\
+(((16 1) (16 1)) ((16 1) (16 1)))\
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\
+> (test_racionales(fibonacci un))\
+(1 1)}

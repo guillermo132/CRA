@@ -1,0 +1,541 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf340
+{\fonttbl\f0\fmodern\fcharset0 Courier-Bold;\f1\fmodern\fcharset0 Courier;\f2\fmodern\fcharset0 Courier-Oblique;
+}
+{\colortbl;\red255\green255\blue255;\red24\green192\blue255;\red67\green67\blue67;\red190\green0\blue255;
+\red3\green39\blue38;\red252\green79\blue8;\red10\green82\blue135;\red16\green131\blue255;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\b\fs26 \cf2 \expnd0\expndtw0\kerning0
+jugar
+\f1\b0 \cf0 :\cf3 -\cf0 \
+       \cf4 modo_juego\cf0 (\cf5 NumFilas\cf0 ,\cf5 NumColumnas\cf0 ,\cf5 NumBombas\cf0 ),\
+       \cf4 rellenarTablero\cf0 (\cf5 Lista\cf0 , \cf5 NumColumnas\cf0 ,\cf5 NumFilas\cf0 ),\
+       \cf4 mostrarTablero\cf0 (\cf5 Lista\cf0 ,\cf5 NumColumnas\cf0 ),\
+       \cf4 posicionarBombas\cf0 (\cf5 NumBombas\cf0 ,\cf5 NumFilas\cf0 ,\cf5 NumColumnas\cf0 ,\cf5 CoordenadasBombas\cf0 ),\
+       \cf4 ponerBombas\cf0 (\cf5 Lista\cf0 ,\cf5 CoordenadasBombas\cf0 ,\cf5 ListaBombas\cf0 ),\
+       \cf4 write\cf0 ('\\n\\n\\n\\n\\n'),\
+       \cf4 mostrarTablero\cf0 (\cf5 ListaBombas\cf0 ,\cf5 NumColumnas\cf0 ),\
+       \cf4 pedirCoor\cf0 (\cf5 Lista\cf0 ,\cf5 ListaBombas\cf0 ,\cf5 NumColumnas\cf0 ,\cf5 NumFilas\cf0 ,\cf5 NumBombas\cf0 ),!.\
+\
+\
+\cf4 pedirCoor\cf0 (\cf5 Lista\cf0 ,\cf5 ListaBombas\cf0 ,\cf5 NumColumnas\cf0 ,\cf5 NumFilas\cf0 ,\cf5 NumBombas\cf0 ):-\
+             \cf4 ganado\cf0 (\cf5 ListaBombas\cf0 ,\cf5 R\cf0 ),\
+             \cf5 R\cf3 ==\cf6 0\cf0 ,\
+             \cf4 write\cf0 ('\\n\\n\\n\\t********************************************'),\
+             \cf4 write\cf0 ('\\n\\t*** FELICIDADES HA GANADO USTED EL JUEGO ***'),\
+             \cf4 write\cf0 ('\\n\\t*************** BUEN TRABAJO ***************'),\
+             \cf4 write\cf0 ('\\n\\t********************************************').\
+\
+\cf4 pedirCoor\cf0 (\cf5 Lista\cf0 ,\cf5 ListaBombas\cf0 ,\cf5 NumColumnas\cf0 ,\cf5 NumFilas\cf0 ,\cf5 NumBombas\cf0 ):-\
+             \cf4 ganado\cf0 (\cf5 ListaBombas\cf0 ,\cf5 R\cf0 ),\
+             \cf5 R\cf3 ==\cf6 1\cf0 ,\
+             \cf4 pedirCoordenada\cf0 (\cf5 NumColumnas\cf0 ,\cf5 NumFilas\cf0 ,\cf5 Fila\cf0 ,\cf5 Columna\cf0 ),\
+             \cf4 logicaJuego\cf0 (\cf5 Lista\cf0 ,\cf5 ListaBombas\cf0 , \cf5 NumColumnas\cf0 ,\cf5 NumFilas\cf0 ,\cf5 NumBombas\cf0 ,\cf5 Fila\cf0 ,\cf5 Columna\cf0 ,\cf5 Ret\cf0 ,\cf5 Lista2\cf0 ,\cf5 ListaBombas2\cf0 ),\
+             \cf4 evaluarLogica\cf0 (\cf5 Lista2\cf0 ,\cf5 ListaBombas2\cf0 , \cf5 NumColumnas\cf0 ,\cf5 NumFilas\cf0 ,\cf5 NumBombas\cf0 , \cf5 Ret\cf0 ),!.\
+\
+\
+\cf4 logicaJuego\cf0 (\cf5 Lista\cf0 ,\cf5 ListaBombas\cf0 , \cf5 NumColumnas\cf0 ,\cf5 NumFilas\cf0 ,\cf5 NumBombas\cf0 ,\cf5 Fila\cf0 ,\cf5 Columna\cf0 , \cf5 Ret\cf0 ,\cf5 Lista\cf0 ,\cf5 ListaBombas\cf0 ):-\
+             \cf5 Fila\cf3 <\cf6 0\cf0 ;\
+             \cf5 Fila\cf3 >=\cf5 NumFilas\cf0 ;\
+             \cf5 Columna\cf3 <\cf6 0\cf0 ;\
+             \cf5 Columna\cf3 >=\cf5 NumColumnas\cf0 .\
+             \
+\cf4 logicaJuego\cf0 (\cf5 Lista\cf0 ,\cf5 ListaBombas\cf0 , \cf5 NumColumnas\cf0 ,\cf5 NumFilas\cf0 ,\cf5 NumBombas\cf0 ,\cf5 Fila\cf0 ,\cf5 Columna\cf0 ,\cf5 Ret\cf0 ,\cf5 Lista2\cf0 ,\cf5 ListaBombas2\cf0 ):-\
+             \cf4 bombasLados\cf0 (\cf5 ListaBombas\cf0 ,\cf5 Fila\cf0 ,\cf5 Columna\cf0 ,\cf5 NumFilas\cf0 ,\cf5 NumColumnas\cf0 ,\cf5 B\cf0 ),\
+             \cf4 logicaJuego_aux\cf0 (\cf5 Lista\cf0 ,\cf5 ListaBombas\cf0 ,\cf5 Fila\cf0 ,\cf5 Columna\cf0 ,\cf5 NumFilas\cf0 ,\cf5 NumColumnas\cf0 ,\cf5 B\cf0 , \cf5 Ret\cf0 ,\cf5 Lista2\cf0 ,\cf5 ListaBombas2\cf0 ).\
+\
+\cf4 evaluarLogica\cf0 (\cf5 Lista2\cf0 ,\cf5 ListaBombas\cf0 , \cf5 NumColumnas\cf0 ,\cf5 NumFilas\cf0 ,\cf5 NumBombas\cf0 , \cf5 Ret\cf0 ):-\
+             \cf5 Ret\cf0  \cf3 ==\cf0  \cf3 -\cf6 1\cf0 ,\
+             \cf4 pedirCoor\cf0 (\cf5 Lista2\cf0 ,\cf5 ListaBombas\cf0 , \cf5 NumColumnas\cf0 ,\cf5 NumFilas\cf0 ,\cf5 NumBombas\cf0 ).\
+\
+\cf4 evaluarLogica\cf0 (\cf5 Lista2\cf0 ,\cf5 ListaBombas\cf0 , \cf5 NumColumnas\cf0 ,\cf5 NumFilas\cf0 ,\cf5 NumBombas\cf0 , \cf5 Ret\cf0 ):-\
+             \cf5 Ret\cf0  \cf3 ==\cf0  \cf6 0\cf0 ,\
+             \cf4 write\cf0 ('\\nAs\'ed queda su tablero:\\n\\n'),\
+             \cf4 mostrarTablero\cf0 (\cf5 Lista2\cf0 ,\cf5 NumColumnas\cf0 ),\
+             \cf4 pedirCoor\cf0 (\cf5 Lista2\cf0 ,\cf5 ListaBombas\cf0 , \cf5 NumColumnas\cf0 ,\cf5 NumFilas\cf0 ,\cf5 NumBombas\cf0 ).\
+\
+\
+\cf4 evaluarLogica\cf0 (
+\f0\b \cf7 _
+\f1\b0 \cf0 ,
+\f0\b \cf7 _
+\f1\b0 \cf0 ,
+\f0\b \cf7 _
+\f1\b0 \cf0 ,
+\f0\b \cf7 _
+\f1\b0 \cf0 ,
+\f0\b \cf7 _
+\f1\b0 \cf0 ,
+\f0\b \cf7 _
+\f1\b0 \cf0 ).\
+\
+\
+\cf4 logicaJuego_aux\cf0 (\cf5 Lista\cf0 ,\cf5 ListaBombas\cf0 ,\cf5 Fila\cf0 ,\cf5 Columna\cf0 ,\cf5 NumFilas\cf0 ,\cf5 NumColumnas\cf0 ,\cf5 B\cf0 , \cf5 Ret\cf0 ,\cf5 Lista\cf0 ,\cf5 ListaBombas\cf0 ):-\
+             \cf5 B\cf0  \cf3 ==\cf0  \cf3 -\cf6 2\cf0 ,\
+             \cf4 write\cf0 ('\\n\\t  Ha pinchado una posici\'f3n ya descubierta. Vuelva a intentarlo'),\
+             \cf5 Ret\cf0  \cf3 is\cf0  \cf3 -\cf6 1\cf0 , !.\
+\
+\cf4 logicaJuego_aux\cf0 (\cf5 Lista\cf0 ,\cf5 ListaBombas\cf0 ,\cf5 Fila\cf0 ,\cf5 Columna\cf0 ,\cf5 NumFilas\cf0 ,\cf5 NumColumnas\cf0 ,\cf5 B\cf0 , \cf5 Ret\cf0 ,\cf5 RetLista\cf0 ,\cf5 RetListaBombas\cf0 ):-\
+             \cf5 B\cf0  \cf3 ==\cf0  \cf3 -\cf6 1\cf0 ,\
+             \cf4 write\cf0 ('\\n\'a1\'a1\'a1\'a1\'a1BOOOOOOOOOMBAAAAAAAAA!!!!! El juego ha terminado.'),\
+             \cf5 RetLista\cf0  \cf3 =\cf0  [],\
+             \cf5 RetListaBombas\cf0  \cf3 =\cf0  [],\
+             \cf5 Ret\cf0  \cf3 is\cf0  \cf6 1\cf0 , !.\
+\
+\cf4 logicaJuego_aux\cf0 (\cf5 Lista\cf0 ,\cf5 ListaBombas\cf0 ,\cf5 Fila\cf0 ,\cf5 Columna\cf0 ,\cf5 NumFilas\cf0 ,\cf5 NumColumnas\cf0 ,\cf5 B\cf0 , \cf5 Ret\cf0 ,\cf5 RetLista\cf0 ,\cf5 RetListaBombas\cf0 ):-\
+             \cf5 B\cf0  \cf3 ==\cf0  \cf6 0\cf0 ,\
+             \cf4 modificar_matriz\cf0 (\cf5 Fila\cf0 ,\cf5 Columna\cf0 ,\cf5 ListaBombas\cf0 ,' ',\cf5 ListaBombas2\cf0 ),\
+             \cf4 modificar_matriz\cf0 (\cf5 Fila\cf0 ,\cf5 Columna\cf0 ,\cf5 Lista\cf0 ,' ',\cf5 Lista2\cf0 ),\
+             \
+             \cf5 Fila1\cf0  \cf3 is\cf0  \cf5 Fila\cf3 +\cf6 1\cf0 ,\
+             \cf5 Fila2\cf0  \cf3 is\cf0  \cf5 Fila\cf3 -\cf6 1\cf0 ,\
+             \cf5 Columna1\cf0  \cf3 is\cf0  \cf5 Columna\cf3 +\cf6 1\cf0 ,\
+             \cf5 Columna2\cf0  \cf3 is\cf0  \cf5 Columna\cf3 -\cf6 1\cf0 ,\
+\
+             \cf4 expandir_libres\cf0 (\cf5 Lista2\cf0 ,\cf5 ListaBombas2\cf0 , \cf5 NumColumnas\cf0 ,\cf5 NumFilas\cf0 ,\cf5 NumBombas\cf0 ,\cf5 Fila1\cf0 ,\cf5 Columna1\cf0 , 
+\f0\b \cf7 _
+\f1\b0 \cf0 ,\cf5 RetLista0\cf0 ,\cf5 RetListaBombas0\cf0 ),\
+             \cf4 expandir_libres\cf0 (\cf5 RetLista0\cf0 ,\cf5 RetListaBombas0\cf0 , \cf5 NumColumnas\cf0 ,\cf5 NumFilas\cf0 ,\cf5 NumBombas\cf0 ,\cf5 Fila1\cf0 ,\cf5 Columna\cf0 ,
+\f0\b \cf7 _
+\f1\b0 \cf0 ,\cf5 RetLista1\cf0 ,\cf5 RetListaBombas1\cf0 ),\
+             \cf4 expandir_libres\cf0 (\cf5 RetLista1\cf0 ,\cf5 RetListaBombas1\cf0 , \cf5 NumColumnas\cf0 ,\cf5 NumFilas\cf0 ,\cf5 NumBombas\cf0 ,\cf5 Fila1\cf0 ,\cf5 Columna2\cf0 , 
+\f0\b \cf7 _
+\f1\b0 \cf0 ,\cf5 RetLista2\cf0 ,\cf5 RetListaBombas2\cf0 ),\
+\
+             \cf4 expandir_libres\cf0 (\cf5 RetLista2\cf0 ,\cf5 RetListaBombas2\cf0 , \cf5 NumColumnas\cf0 ,\cf5 NumFilas\cf0 ,\cf5 NumBombas\cf0 ,\cf5 Fila2\cf0 ,\cf5 Columna\cf0 , 
+\f0\b \cf7 _
+\f1\b0 \cf0 ,\cf5 RetLista3\cf0 ,\cf5 RetListaBombas3\cf0 ),\
+\
+\
+\
+             \cf4 expandir_libres\cf0 (\cf5 RetLista3\cf0 ,\cf5 RetListaBombas3\cf0 , \cf5 NumColumnas\cf0 ,\cf5 NumFilas\cf0 ,\cf5 NumBombas\cf0 ,\cf5 Fila\cf0 ,\cf5 Columna2\cf0 , 
+\f0\b \cf7 _
+\f1\b0 \cf0 ,\cf5 RetLista4\cf0 ,\cf5 RetListaBombas4\cf0 ),\
+\
+             \cf4 expandir_libres\cf0 (\cf5 RetLista4\cf0 ,\cf5 RetListaBombas4\cf0 , \cf5 NumColumnas\cf0 ,\cf5 NumFilas\cf0 ,\cf5 NumBombas\cf0 ,\cf5 Fila2\cf0 ,\cf5 Columna2\cf0 , 
+\f0\b \cf7 _
+\f1\b0 \cf0 ,\cf5 RetLista5\cf0 ,\cf5 RetListaBombas5\cf0 ),\
+             \cf4 expandir_libres\cf0 (\cf5 RetLista5\cf0 ,\cf5 RetListaBombas5\cf0 , \cf5 NumColumnas\cf0 ,\cf5 NumFilas\cf0 ,\cf5 NumBombas\cf0 ,\cf5 Fila\cf0 ,\cf5 Columna1\cf0 , 
+\f0\b \cf7 _
+\f1\b0 \cf0 ,\cf5 RetLista6\cf0 ,\cf5 RetListaBombas6\cf0 ),\
+             \cf4 expandir_libres\cf0 (\cf5 RetLista6\cf0 ,\cf5 RetListaBombas6\cf0 , \cf5 NumColumnas\cf0 ,\cf5 NumFilas\cf0 ,\cf5 NumBombas\cf0 ,\cf5 Fila2\cf0 ,\cf5 Columna1\cf0 , 
+\f0\b \cf7 _
+\f1\b0 \cf0 ,\cf5 RetLista\cf0 ,\cf5 RetListaBombas\cf0 ),\
+\
+             \cf5 Ret\cf0  \cf3 is\cf0  \cf6 0\cf0 .\
+\
+\cf4 logicaJuego_aux\cf0 (\cf5 Lista\cf0 ,\cf5 ListaBombas\cf0 ,\cf5 Fila\cf0 ,\cf5 Columna\cf0 ,\cf5 NumFilas\cf0 ,\cf5 NumColumnas\cf0 ,\cf5 B\cf0 , \cf5 Ret\cf0 ,\cf5 RetLista\cf0 ,\cf5 RetListaBombas\cf0 ):-\
+             \cf4 modificar_matriz\cf0 (\cf5 Fila\cf0 ,\cf5 Columna\cf0 ,\cf5 ListaBombas\cf0 ,' ',\cf5 RetListaBombas\cf0 ),\
+             \cf4 modificar_matriz\cf0 (\cf5 Fila\cf0 ,\cf5 Columna\cf0 ,\cf5 Lista\cf0 ,\cf5 B\cf0 ,\cf5 RetLista\cf0 ),\
+             \cf5 Ret\cf0  \cf3 is\cf0  \cf6 0\cf0 .\
+\
+\cf4 expandir_libres\cf0 (\cf5 Lista\cf0 ,\cf5 ListaBombas\cf0 , \cf5 NumColumnas\cf0 ,\cf5 NumFilas\cf0 ,\cf5 NumBombas\cf0 ,\cf5 Fila\cf0 ,\cf5 Columna\cf0 ,\cf5 Ret\cf0 ,\cf5 Lista\cf0 ,\cf5 ListaBombas\cf0 ) :-\
+             \cf5 Fila\cf3 <\cf6 0\cf0 ;\
+             \cf5 Fila\cf3 >=\cf5 NumFilas\cf0 ;\
+             \cf5 Columna\cf3 <\cf6 0\cf0 ;\
+             \cf5 Columna\cf3 >=\cf5 NumColumnas\cf0 .\
+\
+\cf4 expandir_libres\cf0 (\cf5 Lista\cf0 ,\cf5 ListaBombas\cf0 , \cf5 NumColumnas\cf0 ,\cf5 NumFilas\cf0 ,\cf5 NumBombas\cf0 ,\cf5 Fila\cf0 ,\cf5 Columna\cf0 ,\cf5 Ret\cf0 ,\cf5 Lista2\cf0 ,\cf5 ListaBombas2\cf0 ) :-\
+             \cf4 bombasLados\cf0 (\cf5 ListaBombas\cf0 ,\cf5 Fila\cf0 ,\cf5 Columna\cf0 ,\cf5 NumFilas\cf0 ,\cf5 NumColumnas\cf0 ,\cf5 B\cf0 ),\
+             \cf4 expandir_libres_aux\cf0 (\cf5 Lista\cf0 ,\cf5 ListaBombas\cf0 , \cf5 NumColumnas\cf0 ,\cf5 NumFilas\cf0 ,\cf5 NumBombas\cf0 ,\cf5 Fila\cf0 ,\cf5 Columna\cf0 , 
+\f0\b \cf7 _
+\f1\b0 \cf0 ,\cf5 Lista2\cf0 ,\cf5 ListaBombas2\cf0 ,\cf5 B\cf0 ).\
+\
+\cf4 expandir_libres_aux\cf0 (\cf5 Lista\cf0 ,\cf5 ListaBombas\cf0 , \cf5 NumColumnas\cf0 ,\cf5 NumFilas\cf0 ,\cf5 NumBombas\cf0 ,\cf5 Fila\cf0 ,\cf5 Columna\cf0 ,\cf5 Ret\cf0 ,\cf5 Lista\cf0 ,\cf5 ListaBombas\cf0 , \cf5 B\cf0 ):-\
+              \cf5 B\cf0 ==(\cf3 -\cf6 2\cf0 );\
+              \cf5 B\cf0 ==(\cf3 -\cf6 1\cf0 ).\
+\cf4 expandir_libres_aux\cf0 (\cf5 Lista\cf0 ,\cf5 ListaBombas\cf0 , \cf5 NumColumnas\cf0 ,\cf5 NumFilas\cf0 ,\cf5 NumBombas\cf0 ,\cf5 Fila\cf0 ,\cf5 Columna\cf0 ,\cf5 Ret\cf0 ,\cf5 Lista2\cf0 ,\cf5 ListaBombas2\cf0 ,\cf5 B\cf0 ) :-\
+             \cf5 B\cf0 \\=(\cf3 -\cf6 2\cf0 ),\
+             \cf4 logicaJuego\cf0 (\cf5 Lista\cf0 ,\cf5 ListaBombas\cf0 , \cf5 NumColumnas\cf0 ,\cf5 NumFilas\cf0 ,\cf5 NumBombas\cf0 ,\cf5 Fila\cf0 ,\cf5 Columna\cf0 , 
+\f0\b \cf7 _
+\f1\b0 \cf0 ,\cf5 Lista2\cf0 ,\cf5 ListaBombas2\cf0 ),!.\
+\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f2\i \cf8 %%Elegir el modo de juego
+\f1\i0 \cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf4 modo_juego\cf0 (\cf5 NumFilas\cf0 ,\cf5 NumColumnas\cf0 ,\cf5 NumBombas\cf0 ):-\
+              \cf4 write\cf0 ('\\nElija el modo de juego:'),\
+              \cf4 write\cf0 ('\\n\\t1.Facil'),\
+              \cf4 write\cf0 ('\\n\\t2.Medio'),\
+              \cf4 write\cf0 ('\\n\\t3.Dificil'),\
+              \cf4 write\cf0 ('\\n\\t4.Personalizado\\n\\t->'),\
+              \cf4 read\cf0 (\cf5 Mod\cf0 ),\
+              \cf4 elegir\cf0 (\cf5 NumFilas\cf0 ,\cf5 NumColumnas\cf0 ,\cf5 NumBombas\cf0 ,\cf5 Mod\cf0 ).\
+\
+\cf4 elegir\cf0 (\cf5 NumFilas\cf0 ,\cf5 NumColumnas\cf0 ,\cf5 NumBombas\cf0 ,\cf5 Mod\cf0 ):-\
+              \cf5 Mod\cf3 =:=\cf6 1\cf0 ,\
+              \cf4 write\cf0 ('\\n\\nHa elegido el modo de juego Facil\\n'),\
+              \cf5 NumColumnas\cf0  \cf3 is\cf0  \cf6 9\cf0 ,\
+              \cf5 NumFilas\cf0  \cf3 is\cf0  \cf6 9\cf0 ,\
+              \cf5 NumBombas\cf0  \cf3 is\cf0  \cf6 10\cf0 .\
+\
+\cf4 elegir\cf0 (\cf5 NumFilas\cf0 ,\cf5 NumColumnas\cf0 ,\cf5 NumBombas\cf0 ,\cf5 Mod\cf0 ):-\
+              \cf5 Mod\cf3 =:=\cf6 2\cf0 ,\
+              \cf4 write\cf0 ('\\n\\nHa elegido el modo de juego Medio\\n'),\
+              \cf5 NumColumnas\cf0  \cf3 is\cf0  \cf6 16\cf0 ,\
+              \cf5 NumFilas\cf0  \cf3 is\cf0  \cf6 16\cf0 ,\
+              \cf5 NumBombas\cf0  \cf3 is\cf0  \cf6 40\cf0 .\
+\
+\cf4 elegir\cf0 (\cf5 NumFilas\cf0 ,\cf5 NumColumnas\cf0 ,\cf5 NumBombas\cf0 ,\cf5 Mod\cf0 ):-\
+              \cf5 Mod\cf3 =:=\cf6 3\cf0 ,\
+              \cf4 write\cf0 ('\\n\\nHa elegido el modo de juego Dificil\\n'),\
+              \cf5 NumColumnas\cf0  \cf3 is\cf0  \cf6 30\cf0 ,\
+              \cf5 NumFilas\cf0  \cf3 is\cf0  \cf6 16\cf0 ,\
+              \cf5 NumBombas\cf0  \cf3 is\cf0  \cf6 99\cf0 .\
+\
+\cf4 elegir\cf0 (\cf5 NumFilas\cf0 ,\cf5 NumColumnas\cf0 ,\cf5 NumBombas\cf0 ,\cf5 Mod\cf0 ):-\
+              \cf5 Mod\cf3 =:=\cf6 4\cf0 ,\
+              \cf4 write\cf0 ('\\n\\nHa elegido el modo de juego Personalizado\\n'),\
+              \cf4 pedirFilas\cf0 (\cf5 NumFilas\cf0 ),\
+              \cf4 pedirColumnas\cf0 (\cf5 NumColumnas\cf0 ),\
+              \cf4 pedirBombas\cf0 (\cf5 NumFilas\cf0 , \cf5 NumColumnas\cf0 , \cf5 NumBombas\cf0 ).\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f2\i \cf8 %%Pedir datos
+\f1\i0 \cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf4 pedirFilas\cf0 (\cf5 NumFilas\cf0 ) :- repeat,\
+              \cf4 write\cf0 ('\\nN\'famero de filas (entre 9 y 24): '),\
+              \cf4 read\cf0 (\cf5 NumFilas\cf0 ),\
+              \cf4 integer\cf0 (\cf5 NumFilas\cf0 ) ,\
+              \cf5 NumFilas\cf0  \cf3 >=\cf0  \cf6 9\cf0 ,\
+              \cf5 NumFilas\cf0  \cf3 =<\cf0  \cf6 24\cf0 ,\
+              !.\
+\
+\cf4 pedirColumnas\cf0 (\cf5 NumColumnas\cf0 ) :- repeat,\
+              \cf4 write\cf0 ('\\nN\'famero de columnas (entre 9 y 30): '),\
+              \cf4 read\cf0 (\cf5 NumColumnas\cf0 ),\
+              \cf4 integer\cf0 (\cf5 NumColumnas\cf0 ),\
+              \cf5 NumColumnas\cf0  \cf3 >=\cf0  \cf6 9\cf0 ,\
+              \cf5 NumColumnas\cf0  \cf3 =<\cf0  \cf6 30\cf0 ,\
+              !.\
+              \
+\cf4 pedirBombas\cf0 (\cf5 NumColumnas\cf0 ,\cf5 NumFilas\cf0 , \cf5 NumBombas\cf0 ) :- repeat,\
+               \cf5 MaxBombas\cf0  \cf3 is\cf0  (\cf5 NumColumnas\cf0  \cf3 -\cf0  \cf6 1\cf0 )*(\cf5 NumFilas\cf0  \cf3 -\cf0  \cf6 1\cf0 ),\
+               \cf4 write\cf0 ('\\nN\'famero de bombas (entre 10 y '),\
+               \cf4 write\cf0 (\cf5 MaxBombas\cf0 ),\
+               \cf4 write\cf0 ('):'),\
+               \cf4 read\cf0 (\cf5 NumBombas\cf0 ),\
+               \cf4 integer\cf0 (\cf5 NumBombas\cf0 ),\
+               \cf5 NumBombas\cf0  \cf3 >=\cf0  \cf6 10\cf0 ,\
+               \cf5 NumBombas\cf0  \cf3 =<\cf0  \cf5 MaxBombas\cf0 ,\
+\
+               !.\
+\
+\cf4 pedirCoordenada\cf0 (\cf5 NumColumnas\cf0 ,\cf5 NumFilas\cf0 ,\cf5 Fila\cf0 ,\cf5 Columna\cf0 ):-\
+               \cf4 write\cf0 ('\\n\\nPinche sobre una posici\'f3n del tablero. Recuerde escribir un punto tras cada n\'famero.'),\
+               repeat,\
+               \cf4 write\cf0 ('\\nFila: '),\
+               \cf4 read\cf0 (\cf5 Fila\cf0 ),\
+               \cf4 integer\cf0 (\cf5 Fila\cf0 ),\
+               
+\f2\i \cf8 %Fila>=0,
+\f1\i0 \cf0 \
+               \cf5 Fila\cf3 <\cf5 NumFilas\cf0 ,\
+               !,\
+               repeat,\
+               \cf4 write\cf0 ('   Columna: '),\
+               \cf4 read\cf0 (\cf5 Columna\cf0 ),\
+               \cf4 integer\cf0 (\cf5 Columna\cf0 ),\
+               \cf5 Columna\cf3 >=\cf6 0\cf0 ,\
+               \cf5 Columna\cf3 <\cf5 NumColumnas\cf0 ,\
+               !.\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f2\i \cf8 %%Rellenar el tablero
+\f1\i0 \cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf4 rellenarTablero\cf0 (\cf5 Lista\cf0 , \cf5 NumColumnas\cf0 , \cf5 NumFilas\cf0 ) :-\
+                        \cf4 crearColumna\cf0 (\cf5 Lista\cf0 , \cf5 NumFilas\cf0 , \cf5 NumColumnas\cf0 ).\
+                                      \
+\cf4 crearColumna\cf0 (\cf5 Lista\cf0 , \cf5 NumFilas\cf0 , \cf5 NumColumnas\cf0 ) :-\
+                    \cf4 crearColumnaAux\cf0 (\cf5 Lista\cf0 , \cf5 NumFilas\cf0 , [], \cf5 NumColumnas\cf0 ),\
+                    !.\
+                    \
+\cf4 crearColumnaAux\cf0 (\cf5 ListaCol\cf0 , \cf5 Rest\cf0 , \cf5 ListaColAux\cf0 , \cf5 NumColumnas\cf0 ):-\
+                          \cf5 Rest\cf0  \cf3 >\cf0  \cf6 0\cf0 ,\
+                          \cf5 RestX\cf0  \cf3 is\cf0  \cf5 Rest\cf3 -\cf6 1\cf0 ,\
+                          \cf4 crearFila\cf0 (\cf5 ListaFila\cf0 , \cf5 NumColumnas\cf0 ),\
+                          \cf4 crearColumnaAux\cf0 (\cf5 ListaCol\cf0 , \cf5 RestX\cf0 , [\cf5 ListaFila\cf0 |\cf5 ListaColAux\cf0 ], \cf5 NumColumnas\cf0 ).\
+                          \
+\cf4 crearColumnaAux\cf0 (\cf5 ListaCol\cf0 , 
+\f0\b \cf7 _
+\f1\b0 \cf0 , \cf5 ListaCol\cf0 , 
+\f0\b \cf7 _
+\f1\b0 \cf0 ).\
+\
+\cf4 crearFila\cf0 (\cf5 Lista\cf0 , \cf5 NumColumnas\cf0  ) :-\
+   \cf4 crearFilaAux\cf0 (\cf5 Lista\cf0 , \cf5 NumColumnas\cf0 , []),\
+   !.\
+   \
+\cf4 crearFilaAux\cf0 (\cf5 Lista\cf0 , \cf5 Rest\cf0 , \cf5 Li\cf0  staAux) :-\
+                      \cf5 Rest\cf0  \cf3 >\cf0  \cf6 0\cf0 ,\
+                      \cf5 RestX\cf0  \cf3 is\cf0  \cf5 Rest\cf3 -\cf6 1\cf0 ,\
+                      \cf4 crearFilaAux\cf0 (\cf5 Lista\cf0 , \cf5 RestX\cf0 , [x|\cf5 ListaAux\cf0 ]).\
+\cf4 crearFilaAux\cf0 (\cf5 ListaAux\cf0 , 
+\f0\b \cf7 _
+\f1\b0 \cf0 , \cf5 ListaAux\cf0 ).\
+\
+\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f2\i \cf8 %%Mostrar tablero.
+\f1\i0 \cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf4 mostrarTablero\cf0 ([\cf5 X\cf0 |\cf5 Lista\cf0 ],\cf5 NumColumnas\cf0 ) :-\
+                            \cf4 escribir_rayas\cf0 (\cf5 NumColumnas\cf0 ),\
+                            \cf4 write\cf0 ('\\n'),\
+                            \cf4 mostrarTableroFila\cf0 (\cf5 X\cf0 ),\
+                            \cf4 write\cf0 ('\\n'),\
+                            \cf4 mostrarTablero\cf0 (\cf5 Lista\cf0 ,\cf5 NumColumnas\cf0 ).\
+\cf4 mostrarTablero\cf0 ([],\cf5 NumColumnas\cf0 ):-\cf4 escribir_rayas\cf0 (\cf5 NumColumnas\cf0 ).\
+                             \
+\cf4 mostrarTableroFila\cf0 ([\cf5 X\cf0 |\cf5 Lista\cf0 ]) :-\
+                             \cf4 write\cf0 ('|'),\
+                             \cf4 write\cf0 (\cf5 X\cf0 ),\
+                             \cf4 mostrarTableroFila\cf0 (\cf5 Lista\cf0 ).\
+\cf4 mostrarTableroFila\cf0 ([]):- \cf4 write\cf0 ('|').\
+\
+\cf4 escribir_rayas\cf0 (\cf5 Columnas\cf0 ):-\
+                         \cf5 Columnas\cf3 =:=\cf6 0\cf0 ,\
+                         \cf4 write\cf0 ('-'),\
+                         !.\
+                         \
+\cf4 escribir_rayas\cf0 (\cf5 Columnas\cf0 ):-\
+                         \cf4 write\cf0 ('--'),\
+                         \cf5 NuevaCol\cf0  \cf3 is\cf0  \cf5 Columnas\cf3 -\cf6 1\cf0 ,\
+                         \cf4 escribir_rayas\cf0 (\cf5 NuevaCol\cf0 ).\
+                         \
+\pard\pardeftab720\partightenfactor0
+
+\f2\i \cf8 %%Modificar_matriz(Fila,Columna,ListaOriginal,DatoNuevo,ListadoModificado)  **Recordar que Filas y Columnas empiezan en 0**
+\f1\i0 \cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf4 modificar_matriz\cf0 (\cf5 F\cf0 ,\cf5 C\cf0 ,\cf5 Lista\cf0 ,\cf5 Dato\cf0 ,\cf5 List\cf0 ):-\
+                          \cf4 modificar_matriz_aux\cf0 (\cf5 F\cf0 ,\cf5 C\cf0 ,\cf5 Lista\cf0 ,\cf5 Dato\cf0 ,[],\cf5 List\cf0 ),\
+                          !.\
+\
+\cf4 modificar_matriz_aux\cf0 (\cf5 F\cf0 ,\cf5 C\cf0 ,\cf5 Lista\cf0 ,\cf5 Dato\cf0 ,\cf5 L\cf0 ,\cf5 List\cf0 ):-\
+                          \cf4 length\cf0 (\cf5 Lista\cf0 ,\cf5 X\cf0 ),\
+                          \cf5 F\cf3 >=\cf5 X\cf0 ,\
+                          !.\
+                          \
+\cf4 modificar_matriz_aux\cf0 (\cf5 F\cf0 ,\cf5 C\cf0 ,[\cf5 D\cf0 |\cf5 Lista\cf0 ],\cf5 Dato\cf0 ,\cf5 L\cf0 ,\cf5 List\cf0 ):-\
+                          \cf5 F\cf3 =:=\cf6 0\cf0 ,\
+                          \cf4 modificar_lista\cf0 (\cf5 C\cf0 ,\cf5 D\cf0 ,\cf5 Dato\cf0 ,\cf5 DMod\cf0 ),\
+                          \cf4 append\cf0 (\cf5 L\cf0 ,[\cf5 DMod\cf0 |\cf5 Lista\cf0 ],\cf5 List\cf0 ).\
+                          \
+\cf4 modificar_matriz_aux\cf0 (\cf5 F\cf0 ,\cf5 C\cf0 ,[\cf5 D\cf0 |\cf5 Lista\cf0 ],\cf5 Dato\cf0 ,\cf5 L\cf0 ,\cf5 List\cf0 ):-\
+                          \cf5 F\cf0 =\\=\cf6 0\cf0 ,\
+                          \cf4 length\cf0 (\cf5 Lista\cf0 ,\cf5 X\cf0 ),\
+                          \cf5 F\cf3 =<\cf5 X\cf0 ,\
+                          \cf4 append\cf0 (\cf5 L\cf0 ,[\cf5 D\cf0 ],\cf5 Aux\cf0 ),\
+                          \cf5 FNuevo\cf0  \cf3 is\cf0  \cf5 F\cf3 -\cf6 1\cf0 ,\
+                          \cf4 modificar_matriz_aux\cf0 (\cf5 FNuevo\cf0 ,\cf5 C\cf0 ,\cf5 Lista\cf0 ,\cf5 Dato\cf0 ,\cf5 Aux\cf0 ,\cf5 List\cf0 ).\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f2\i \cf8 %%Modificar Listado
+\f1\i0 \cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf4 modificar_lista\cf0 (\cf5 N\cf0 ,\cf5 Lista\cf0 ,\cf5 Dato\cf0 ,\cf5 List\cf0 ):-\
+                          \cf4 modificar_lista_aux\cf0 (\cf5 N\cf0 ,\cf5 Lista\cf0 ,\cf5 Dato\cf0 ,[],\cf5 List\cf0 ),!.\
+\
+\cf4 modificar_lista_aux\cf0 (\cf5 N\cf0 ,\cf5 Lista\cf0 ,\cf5 Dato\cf0 ,\cf5 L\cf0 ,\cf5 List\cf0 ):-\
+                          \cf4 length\cf0 (\cf5 Lista\cf0 ,\cf5 X\cf0 ),\
+                          \cf5 N\cf3 >=\cf5 X\cf0 ,\
+                          !.\
+                          \
+\cf4 modificar_lista_aux\cf0 (\cf5 N\cf0 ,[\cf5 D\cf0 |\cf5 Lista\cf0 ],\cf5 Dato\cf0 ,\cf5 L\cf0 ,\cf5 List\cf0 ):-\
+                          \cf5 N\cf3 =:=\cf6 0\cf0 ,\
+                          \cf4 append\cf0 (\cf5 L\cf0 ,[\cf5 Dato\cf0 |\cf5 Lista\cf0 ],\cf5 List\cf0 ).\
+                          \
+\cf4 modificar_lista_aux\cf0 (\cf5 N\cf0 ,[\cf5 D\cf0 |\cf5 Lista\cf0 ],\cf5 Dato\cf0 ,\cf5 L\cf0 ,\cf5 List\cf0 ):-\
+                          \cf5 N\cf0 =\\=\cf6 0\cf0 ,\
+                          \cf4 length\cf0 (\cf5 Lista\cf0 ,\cf5 X\cf0 ),\
+                          \cf5 N\cf3 =<\cf5 X\cf0 ,\
+                          \cf4 append\cf0 (\cf5 L\cf0 ,[\cf5 D\cf0 |[]],\cf5 Aux\cf0 ),\
+                          \cf5 NNuevo\cf0  \cf3 is\cf0  \cf5 N\cf3 -\cf6 1\cf0 ,\
+                          \cf4 modificar_lista_aux\cf0 (\cf5 NNuevo\cf0 ,\cf5 Lista\cf0 ,\cf5 Dato\cf0 ,\cf5 Aux\cf0 ,\cf5 List\cf0 ).\
+                          \
+\pard\pardeftab720\partightenfactor0
+
+\f2\i \cf8 %%Calcula un array con las coordenadas de las bombas
+\f1\i0 \cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf4 posicionarBombas\cf0 (\cf5 NumBombas\cf0 ,\cf5 NumFilas\cf0 ,\cf5 NumColumnas\cf0 ,\cf5 CoordenadasBombas\cf0 ):-\
+                          \cf4 posicionesBombas_aux\cf0 (\cf5 NumBombas\cf0 ,\cf5 NumFilas\cf0 ,\cf5 NumColumnas\cf0 ,[],\cf5 CoordenadasBombas\cf0 ).\
+\
+\cf4 posicionesBombas_aux\cf0 (\cf5 NumBombas\cf0 ,\cf5 NumFilas\cf0 ,\cf5 NumColumnas\cf0 ,\cf5 CoordenadasBombas\cf0 ,\cf5 Salida\cf0 ):-\
+                          \cf5 NumBombas\cf3 >\cf6 0\cf0 ,\
+                          repeat,\
+                          \cf4 random\cf0 (\cf6 0\cf0 ,\cf5 NumFilas\cf0 ,\cf5 Fila\cf0 ),\
+                          \cf4 random\cf0 (\cf6 0\cf0 ,\cf5 NumColumnas\cf0 ,\cf5 Columna\cf0 ),\
+                          \cf4 append\cf0 ([\cf5 Fila\cf0 ],[\cf5 Columna\cf0 ],\cf5 Coor\cf0 ),\
+                          \\+\cf4 validar\cf0 (\cf5 Coor\cf0 ,\cf5 CoordenadasBombas\cf0 ),\
+                          !,\
+                          \cf5 Pos\cf0  \cf3 is\cf0  \cf5 NumBombas\cf3 -\cf6 1\cf0 ,\
+                          \cf4 posicionesBombas_aux\cf0 (\cf5 Pos\cf0 ,\cf5 NumFilas\cf0 ,\cf5 NumColumnas\cf0 ,[\cf5 Coor\cf0 |\cf5 CoordenadasBombas\cf0 ],\cf5 Salida\cf0 ),\
+                          !.\
+\
+\cf4 posicionesBombas_aux\cf0 (
+\f0\b \cf7 _
+\f1\b0 \cf0 ,
+\f0\b \cf7 _
+\f1\b0 \cf0 ,
+\f0\b \cf7 _
+\f1\b0 \cf0 ,\cf5 CoordenadasBombas\cf0 ,\cf5 CoordenadasBombas\cf0 ).\
+\
+\
+\
+\cf4 validar\cf0 (\cf5 X\cf0 ,[\cf5 X\cf0 |
+\f0\b \cf7 _
+\f1\b0 \cf0 ]).\
+\cf4 validar\cf0 (\cf5 X\cf0 ,[
+\f0\b \cf7 _
+\f1\b0 \cf0 |\cf5 Y\cf0 ]):-\cf4 validar\cf0 (\cf5 X\cf0 ,\cf5 Y\cf0 ).\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f2\i \cf8 %%Crea una copia de la lista y a\'f1ade las bombas en las coordenadas indicadas
+\f1\i0 \cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf4 ponerBombas\cf0 (\cf5 Lista\cf0 ,[],\cf5 Lista\cf0 ).\
+\cf4 ponerBombas\cf0 (\cf5 Lista\cf0 ,[[\cf5 F\cf0 |\cf5 C\cf0 ]|\cf5 CoordenadasBombas\cf0 ],\cf5 Salida\cf0 ):-\
+                          \cf4 modificar_matriz\cf0 (\cf5 F\cf0 ,\cf5 C\cf0 ,\cf5 Lista\cf0 ,'B',\cf5 List\cf0 ),\
+                          \cf4 ponerBombas\cf0 (\cf5 List\cf0 ,\cf5 CoordenadasBombas\cf0 ,\cf5 Salida\cf0 ).\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f2\i \cf8 %%Obtener dato posicion
+\f1\i0 \cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf4 obtenerDato\cf0 ([],
+\f0\b \cf7 _
+\f1\b0 \cf0 ,
+\f0\b \cf7 _
+\f1\b0 \cf0 ,
+\f0\b \cf7 _
+\f1\b0 \cf0 ,
+\f0\b \cf7 _
+\f1\b0 \cf0 ,
+\f0\b \cf7 _
+\f1\b0 \cf0 ).\
+\cf4 obtenerDato\cf0 (\cf5 Lista\cf0 ,\cf5 Fila\cf0 ,\cf5 Columna\cf0 ,\cf5 NumFilas\cf0 ,\cf5 NumColumnas\cf0 ,\cf5 Dato\cf0 ):-\
+                          \cf5 Fila\cf3 >=\cf6 0\cf0 ,\
+                          \cf5 Fila\cf3 <\cf5 NumFilas\cf0 ,\
+                          \cf5 Columna\cf3 >=\cf6 0\cf0 ,\
+                          \cf5 Columna\cf3 <\cf5 NumColumnas\cf0 ,\
+                          \cf4 obtenerDato_aux\cf0 (\cf5 Lista\cf0 ,\cf5 Fila\cf0 ,\cf5 Columna\cf0 ,\cf5 Dato\cf0 ).\
+\
+\
+\cf4 obtenerDato_aux\cf0 ([\cf5 V\cf0 |\cf5 Lista\cf0 ],\cf6 0\cf0 ,\cf5 Columna\cf0 ,\cf5 Dato\cf0 ):-\
+                          \cf4 obtenerDato_aux_dato\cf0 (\cf5 V\cf0 ,\cf5 Columna\cf0 ,\cf5 Dato\cf0 ).\
+\
+\cf4 obtenerDato_aux\cf0 ([\cf5 V\cf0 |\cf5 Lista\cf0 ],\cf5 Fila\cf0 ,\cf5 Columna\cf0 ,\cf5 Dato\cf0 ):-\
+                          \cf5 N\cf0  \cf3 is\cf0  \cf5 Fila\cf3 -\cf6 1\cf0 ,\
+                          \cf4 obtenerDato_aux\cf0 (\cf5 Lista\cf0 ,\cf5 N\cf0 ,\cf5 Columna\cf0 ,\cf5 Dato\cf0 ).\
+\
+\cf4 obtenerDato_aux_dato\cf0 ([\cf5 X\cf0 |\cf5 Lista\cf0 ],\cf6 0\cf0 ,\cf5 X\cf0 ).\
+                          \
+\cf4 obtenerDato_aux_dato\cf0 ([\cf5 X\cf0 |\cf5 Lista\cf0 ],\cf5 Columna\cf0 ,\cf5 Dato\cf0 ):-\
+                          \cf5 NuevaCol\cf0  \cf3 is\cf0  \cf5 Columna\cf3 -\cf6 1\cf0 ,\
+                          \cf4 obtenerDato_aux_dato\cf0 (\cf5 Lista\cf0 ,\cf5 NuevaCol\cf0 ,\cf5 Dato\cf0 ).\
+                          \
+\pard\pardeftab720\partightenfactor0
+
+\f2\i \cf8 %%Numero Bombas alrededor
+\f1\i0 \cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf4 bombasLados\cf0 (\cf5 List\cf0 ,\cf5 Fila\cf0 ,\cf5 Columna\cf0 ,\cf5 NumFilas\cf0 ,\cf5 NumColumnas\cf0 , \cf3 -\cf6 2\cf0 ):-\
+                          \cf4 obtenerDato\cf0 (\cf5 List\cf0 ,\cf5 Fila\cf0 ,\cf5 Columna\cf0 ,\cf5 NumFilas\cf0 ,\cf5 NumColumnas\cf0 ,\cf5 Dato\cf0 ),\
+                          \cf5 Dato\cf0  \cf3 ==\cf0   (' ').\
+\
+\cf4 bombasLados\cf0 (\cf5 List\cf0 ,\cf5 Fila\cf0 ,\cf5 Columna\cf0 ,\cf5 NumFilas\cf0 ,\cf5 NumColumnas\cf0 , \cf3 -\cf6 1\cf0 ):-\
+                          \cf4 obtenerDato\cf0 (\cf5 List\cf0 ,\cf5 Fila\cf0 ,\cf5 Columna\cf0 ,\cf5 NumFilas\cf0 ,\cf5 NumColumnas\cf0 ,\cf5 Dato\cf0 ),\
+                          \cf5 Dato\cf0  \cf3 ==\cf0   ('B').\
+\cf4 bombasLados\cf0 (\cf5 List\cf0 ,\cf5 Fila\cf0 ,\cf5 Columna\cf0 ,\cf5 NumFilas\cf0 ,\cf5 NumColumnas\cf0 ,\cf5 Num\cf0 ):-\
+                          \cf4 bombasLados_aux\cf0 (\cf5 List\cf0 ,\cf5 Fila\cf3 -\cf6 1\cf0 ,\cf5 Columna\cf0 ,\cf5 NumFilas\cf0 ,\cf5 NumColumnas\cf0 ,\cf5 X1\cf0 ),\
+                          \cf4 bombasLados_aux\cf0 (\cf5 List\cf0 ,\cf5 Fila\cf0 ,\cf5 Columna\cf3 -\cf6 1\cf0 ,\cf5 NumFilas\cf0 ,\cf5 NumColumnas\cf0 ,\cf5 X2\cf0 ),\
+                          \cf4 bombasLados_aux\cf0 (\cf5 List\cf0 ,\cf5 Fila\cf3 +\cf6 1\cf0 ,\cf5 Columna\cf0 ,\cf5 NumFilas\cf0 ,\cf5 NumColumnas\cf0 ,\cf5 X3\cf0 ),\
+                          \cf4 bombasLados_aux\cf0 (\cf5 List\cf0 ,\cf5 Fila\cf0 ,\cf5 Columna\cf3 +\cf6 1\cf0 ,\cf5 NumFilas\cf0 ,\cf5 NumColumnas\cf0 ,\cf5 X4\cf0 ),\
+                          \cf4 bombasLados_aux\cf0 (\cf5 List\cf0 ,\cf5 Fila\cf3 -\cf6 1\cf0 ,\cf5 Columna\cf3 -\cf6 1\cf0 ,\cf5 NumFilas\cf0 ,\cf5 NumColumnas\cf0 ,\cf5 X5\cf0 ),\
+                          \cf4 bombasLados_aux\cf0 (\cf5 List\cf0 ,\cf5 Fila\cf3 -\cf6 1\cf0 ,\cf5 Columna\cf3 +\cf6 1\cf0 ,\cf5 NumFilas\cf0 ,\cf5 NumColumnas\cf0 ,\cf5 X6\cf0 ),\
+                          \cf4 bombasLados_aux\cf0 (\cf5 List\cf0 ,\cf5 Fila\cf3 +\cf6 1\cf0 ,\cf5 Columna\cf3 -\cf6 1\cf0 ,\cf5 NumFilas\cf0 ,\cf5 NumColumnas\cf0 ,\cf5 X7\cf0 ),\
+                          \cf4 bombasLados_aux\cf0 (\cf5 List\cf0 ,\cf5 Fila\cf3 +\cf6 1\cf0 ,\cf5 Columna\cf3 +\cf6 1\cf0 ,\cf5 NumFilas\cf0 ,\cf5 NumColumnas\cf0 ,\cf5 X8\cf0 ),\
+                          \cf5 Y\cf0  \cf3 is\cf0  \cf5 X1\cf3 +\cf5 X2\cf0 ,\
+                          \cf5 Y1\cf0  \cf3 is\cf0  \cf5 Y\cf3 +\cf5 X3\cf0 ,\
+                          \cf5 Y2\cf0  \cf3 is\cf0  \cf5 Y1\cf3 +\cf5 X4\cf0 ,\
+                          \cf5 Y3\cf0  \cf3 is\cf0  \cf5 Y2\cf3 +\cf5 X5\cf0 ,\
+                          \cf5 Y4\cf0  \cf3 is\cf0  \cf5 Y3\cf3 +\cf5 X6\cf0 ,\
+                          \cf5 Y5\cf0  \cf3 is\cf0  \cf5 Y4\cf3 +\cf5 X7\cf0 ,\
+                          \cf5 Num\cf0  \cf3 is\cf0  \cf5 Y5\cf3 +\cf5 X8\cf0 \
+                          ,!.\
+\
+\cf4 bombasLados\cf0 (
+\f0\b \cf7 _
+\f1\b0 \cf0 ,
+\f0\b \cf7 _
+\f1\b0 \cf0 ,
+\f0\b \cf7 _
+\f1\b0 \cf0 ,
+\f0\b \cf7 _
+\f1\b0 \cf0 ,
+\f0\b \cf7 _
+\f1\b0 \cf0 ,\cf5 NumBombas\cf0 ).\
+\
+\cf4 bombasLados_aux\cf0 (\cf5 List\cf0 ,\cf5 Fila\cf0 ,\cf5 Columna\cf0 ,\cf5 NumFilas\cf0 ,\cf5 NumColumnas\cf0 , \cf6 1\cf0 ):-\
+                          \cf4 obtenerDato\cf0 (\cf5 List\cf0 ,\cf5 Fila\cf0 ,\cf5 Columna\cf0 ,\cf5 NumFilas\cf0 ,\cf5 NumColumnas\cf0 ,\cf5 Dato\cf0 ),\
+                          \cf5 Dato\cf0  \cf3 ==\cf0  ('B').\
+\
+\cf4 bombasLados_aux\cf0 (\cf5 List\cf0 ,\cf5 Fila\cf0 ,\cf5 Columna\cf0 ,\cf5 NumFilas\cf0 ,\cf5 NumColumnas\cf0 , \cf6 0\cf0 ).\
+\
+\
+\cf4 ganado\cf0 (\cf5 List\cf0 ,\cf5 Res\cf0 ):-\
+            \cf4 ganado_aux\cf0 (\cf5 List\cf0 ,\cf6 0\cf0 ,\cf5 RetRes\cf0 ), 
+\f2\i \cf8 %Cuenta el numero de X que quedan
+\f1\i0 \cf0 \
+            \cf5 RetRes\cf3 ==\cf6 0\cf0 ,\
+            \cf5 Res\cf0  \cf3 is\cf0  \cf6 0\cf0 ,!.  
+\f2\i \cf8 %%Si no quedan X (Casillas por abrir), devuelve 0, termina el juego
+\f1\i0 \cf0 \
+\
+\cf4 ganado\cf0 (\cf5 List\cf0 ,\cf5 Res\cf0 ):-\
+            \cf4 ganado_aux\cf0 (\cf5 List\cf0 ,\cf6 0\cf0 ,\cf5 RetRes\cf0 ), 
+\f2\i \cf8 %Cuenta el numero de X que quedan
+\f1\i0 \cf0 \
+            \cf5 RetRes\cf0 \\=\cf6 0\cf0 ,\
+            \cf5 Res\cf0  \cf3 is\cf0  \cf6 1\cf0 ,!. 
+\f2\i \cf8 %%Si hay al menos 1 X devuelve un 1
+\f1\i0 \cf0 \
+\
+\cf4 ganado_aux\cf0 ([],\cf5 Res\cf0 ,\cf5 Res\cf0 ).\
+\
+\cf4 ganado_aux\cf0 ([\cf5 L\cf0 |\cf5 List\cf0 ],\cf5 Res\cf0 ,\cf5 Ret\cf0 ):-\
+            \cf4 ganado_aux_fila\cf0 (\cf5 L\cf0 ,\cf5 Res\cf0 ,\cf5 Ret1\cf0 ),\
+            \cf4 ganado_aux\cf0 (\cf5 List\cf0 ,\cf5 Ret1\cf0 ,\cf5 Ret\cf0 ),!.\
+\
+\
+\cf4 ganado_aux_fila\cf0 ([],\cf5 Res\cf0 ,\cf5 Res\cf0 ).\
+\
+\cf4 ganado_aux_fila\cf0 ([\cf5 X\cf0 |\cf5 List\cf0 ],\cf5 Res\cf0 ,\cf5 Ret\cf0 ):-\
+            \cf5 X\cf0 =='B',\
+            \cf4 ganado_aux_fila\cf0 (\cf5 List\cf0 ,\cf5 Res\cf0 ,\cf5 Ret\cf0 ).\
+\
+\
+\cf4 ganado_aux_fila\cf0 ([\cf5 X\cf0 |\cf5 List\cf0 ],\cf5 Res\cf0 ,\cf5 Ret\cf0 ):-\
+            \cf5 X\cf0 ==' ',\
+            \cf4 ganado_aux_fila\cf0 (\cf5 List\cf0 ,\cf5 Res\cf0 ,\cf5 Ret\cf0 ).\
+\
+\cf4 ganado_aux_fila\cf0 ([\cf5 X\cf0 |\cf5 List\cf0 ],\cf5 Res\cf0 ,\cf5 Ret\cf0 ):-\
+            \cf5 X\cf0 =='x',\
+            \cf5 Res1\cf0  \cf3 is\cf0  \cf5 Res\cf3 +\cf6 1\cf0 ,\
+            \cf4 ganado_aux_fila\cf0 (\cf5 List\cf0 ,\cf5 Res1\cf0 ,\cf5 Ret\cf0 ),!.}
