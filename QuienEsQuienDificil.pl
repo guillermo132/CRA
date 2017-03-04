@@ -1,4 +1,4 @@
-% Autores: Jesús Luque y Guillermo Perez
+% Autores: Jesús Luque y Guillermo Gomez
 % Fecha: 16/02/2017
 
 listapersonajes([albert,paul,tom,derek,richard,louis,michael,charles,sam,steve,will,anthony,billy,henry,tiffany,natalie,roxanne,sarah,sabrina,cindy,emma]).
