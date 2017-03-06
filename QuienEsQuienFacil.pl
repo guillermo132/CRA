@@ -31,15 +31,12 @@ no_gafas(X):-listagafas(Y),\+member(X,Y). %Predicado que indica si la variable X
 ojos_azules(X):-listaojos_azules(Y), member(X,Y). %Predicado que indica si la variable X tiene los ojos azules.
 ojos_marrones(X):-listaojos_marrones(Y), member(X,Y). %Predicado que indica si la variable X tiene los ojos marrones.
 
-%Operacion para sumar 1
-sumaUno(NumAleatorios,Result):- Result=NumAleatorios+1.
-
 %Funciones de escritura
 escribirFichaJug(FichaUser):-write('Tu personaje es: '), write(FichaUser) , write('\n').
-escribirFicha(FichaPC):-write('PC personaje es: '), write(FichaPC) , write('\n').
+escribirFicha(FichaPC):-write('PC personaje es: '), write(FichaPC).
 escribirVictoriaPC(FichaUser):- write('\nPC GANA, OTRA VEZ SERA').
 escribirVictoriaJugador(FichaPC):- write('\nENHORABUNA, HAS GNADO AL PC').
-escribirListaPersonajes(ListaUser):- write('\n\nLista de personajes: '), write(ListaUser).
+escribirListaPersonajes(ListaUser):- write('\nLista de personajes: '), write(ListaUser).
 escribirListaPreguntas(ListaPreguntasReducidas):- write('\nLista de preguntas: '), write(ListaPreguntasReducidas).
 escribeLongitud(ListaAux):-length(ListaAux,Numero),write(Numero).
 
@@ -59,12 +56,12 @@ eliminarPersonajes(FichaPC,ListaUser,Z,ListaAux):- eliminarPersonajesAux(FichaPC
 %elegir pregunta, restar personajes, poner cuantos elementos le quedan y si le queda 1 -> gana
 jugadaPC(FichaUser,ListaPC,ListaPreguntasReducidas,ListaAuxPC):- write('Turno del PC: '),length(ListaPreguntasReducidas,NumAletorios),
 random(1,7,Aleatorio),nth1(Aleatorio,ListaPreguntasReducidas,Preg),write('Pregunta: '),write(Preg),Z=..[Preg,FichaUser],
-eliminarPersonajes(FichaUser,ListaPC,Z,ListaAuxPC),write('. Me queda una lista de '),escribeLongitud(ListaAuxPC),write(' personajes').
+eliminarPersonajes(FichaUser,ListaPC,Z,ListaAuxPC),write('. Me queda una lista de '),escribeLongitud(ListaAuxPC),write(' personajes '), write(ListaAuxPC).
 
 %Preguntas que hace el jugador
 bucleEjecucion(FichaPC,_,[_],_,_):- escribirVictoriaJugador(FichaPC). %Finaliza la partida y gana el jugador
 bucleEjecucion(FichaUser,_,_,[_],_):- escribirVictoriaPC(FichaUser). %Finaliza la partida y gana el pc
-bucleEjecucion(FichaUser,FichaPC,ListaUser,ListaPC,ListaPreguntasReducidas):- escribirListaPersonajes(ListaUser),escribirListaPreguntas(ListaPreguntasReducidas),
+bucleEjecucion(FichaUser,FichaPC,ListaUser,ListaPC,ListaPreguntasReducidas):- write('\n\nTurno del Usuario: '),escribirListaPersonajes(ListaUser),escribirListaPreguntas(ListaPreguntasReducidas),
 write('\n'),read(Preg), Z=..[Preg,FichaPC], eliminarPersonajes(FichaPC,ListaUser,Z,ListaAuxUser),jugadaPC(FichaUser,ListaPC,ListaPreguntasReducidas,ListaAuxPC),
 bucleEjecucion(FichaUser,FichaPC,ListaAuxUser,ListaAuxPC,ListaPreguntasReducidas).
 
